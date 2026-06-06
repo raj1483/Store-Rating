@@ -10,7 +10,21 @@ Store.belongsTo(User, {
   foreignKey: "ownerId",
   as: "owner"
 });
+User.hasMany(Rating, {
+  foreignKey: "userId"
+});
 
+Rating.belongsTo(User, {
+  foreignKey: "userId"
+});
+
+Store.hasMany(Rating, {
+  foreignKey: "storeId"
+});
+
+Rating.belongsTo(Store, {
+  foreignKey: "storeId"
+});
 User.hasMany(Rating);
 
 Rating.belongsTo(User);
